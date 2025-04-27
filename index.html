@@ -51,83 +51,58 @@
 
 
 
-    <h2>Partie 2 : Générer le mois de janvier</h2>
+<h2>Partie 2 : Générer le mois de janvier</h2>
+
+<table>
     <script type="application/javascript">
         console.log("Début Partie 2");
+        current_day = 1;
+        for (let i = 0; i < 5; i++) {
+            document.write("<tr>");
+            for (let j = 0; j < 7; j++) {
+                if (current_day <= 31) {
+                    document.write("<td>" + current_day + "</td>");
+                    current_day++;
+                } else {
+                    document.write("<td></td>");
+                }
+            }
+            document.write("</tr>");
+        }
+        console.log("Fin Partie 2");
+    </script>
+</table>
 
+
+
+
+<h2>Partie 3 : Isoler le code dans une fonction</h2>
+
+<script type="application/javascript">
+    console.log("Début Partie 3");
+
+    function print_table_month(max_days) {
         document.write("<table>");
-
-        let max_days_january;
-
-        max_line = 5;
-        max_col = 7;
-        max_days_january = 31;
-
-
-        for (current_day = 1; current_day <= max_days_january; ++current_day) {
-
-            for (let i = 1; i <= max_line; ++i) {
-
-                document.write("<tr>");
-
-
-                for (let k = 1; k <= max_col; ++k) {
-                    if (current_day <= max_days_january) {
-                        document.write("<td>" + current_day + "</td>")
-                        ++current_day;
-                    }
-
+        let current_day = 1;
+        for (let i = 0; i < 5; i++) {
+            document.write("<tr>");
+            for (let j = 0; j < 7; j++) {
+                if (current_day <= max_days) {
+                    document.write("<td>" + current_day + "</td>");
+                    current_day++;
+                } else {
+                    document.write("<td></td>");
                 }
-
-                document.write("</tr>");
             }
+            document.write("</tr>");
         }
-
-
         document.write("</table>");
-        console.log("Fin");
-    </script>
+    }
 
+    print_table_month(28); // Exemple pour février
+    console.log("Fin Partie 3");
+</script>
 
-
-    <h2>Partie 3 : Isoler le code dans une fonction</h2>
-    <script type="application/javascript">
-        console.log("Début Partie 3");
-
-        function print_table_month(max_days) {
-            document.write("<table>");
-
-            max_line = 5;
-            max_col = 7;
-
-
-            for (current_day = 1; current_day <= max_days; ++current_day) {
-
-                for (let i = 1; i <= max_line; ++i) {
-
-                    document.write("<tr>");
-
-
-                    for (let k = 1; k <= max_col; ++k) {
-                        if (current_day <= max_days) {
-                            document.write("<td>" + current_day + "</td>")
-                            ++current_day;
-                        }
-
-                    }
-
-                    document.write("</tr>");
-                }
-            }
-
-
-            document.write("</table>");
-        }
-
-        print_table_month(28);
-
-        console.log("Fin");
-    </script>
 
 
 
