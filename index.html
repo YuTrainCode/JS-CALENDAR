@@ -108,7 +108,7 @@
 
     <h2>Partie 4 : Générer les autres mois</h2>
 
-    <div class="calendar-container">
+    <div class="calendar-container" id="calendar">
         <script type="application/javascript">
             console.log("Début Partie 4");
 
@@ -117,16 +117,38 @@
                 "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
             ];
 
+            function print_table_month(max_days) {
+                let table = '<table>';
+                let current_day = 1;
+                for (let i = 0; i < 5; i++) {
+                    table += '<tr>';
+                    for (let j = 0; j < 7; j++) {
+                        if (current_day <= max_days) {
+                            table += '<td>' + current_day + '</td>';
+                            current_day++;
+                        } else {
+                            table += '<td></td>';
+                        }
+                    }
+                    table += '</tr>';
+                }
+                table += '</table>';
+                return table;
+            }
+
+            const calendarDiv = document.getElementById("calendar");
+
             for (let i = 0; i < month_max_days.length; i++) {
                 document.write('<div class="month">');
                 document.write('<h3>' + month_names[i] + '</h3>');
-                print_table_month(month_max_days[i]);
+                document.write(print_table_month(month_max_days[i]));
                 document.write('</div>');
             }
 
             console.log("Fin Partie 4");
         </script>
     </div>
+
 
 
     <h2>Partie 5 : Afficher le jour courant en rouge</h2>
@@ -176,7 +198,6 @@
 
         console.log("Fin");
     </script>
-
 
 </body>
 
