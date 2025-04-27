@@ -178,11 +178,54 @@
     </script>
 
 
-    <h2>Partie 5 : Afficher le jour courant en rouge</h2>
-    <script type="application/javascript">
-        console.log("Début Partie 5");
-        console.log("Fin");
-    </script>
+<h2>Partie 5 : Afficher le jour courant en rouge</h2>
+<script type="application/javascript">
+    console.log("Début Partie 5");
+
+    function print_table_month_highlight_today(max_days) {
+        document.write("<table>");
+
+        let max_line = 5;
+        let max_col = 7;
+        let current_day = 1;
+
+        // Récupérer la date du jour
+        let today = new Date();
+        let today_date = today.getDate();
+        let today_month = today.getMonth(); // attention: janvier = 0
+        let current_month = 0; // pour correspondre au mois actuel (on verra plus tard si besoin)
+
+        for (let i = 1; i <= max_line; ++i) {
+            document.write("<tr>");
+
+            for (let k = 1; k <= max_col; ++k) {
+                if (current_day <= max_days) {
+                    if (current_day === today_date) {
+                        document.write('<td style="color:red; font-weight:bold;">' + current_day + '</td>');
+                    } else {
+                        document.write("<td>" + current_day + "</td>");
+                    }
+                    ++current_day;
+                } else {
+                    document.write("<td></td>");
+                }
+            }
+
+            document.write("</tr>");
+        }
+
+        document.write("</table>");
+    }
+
+    let today = new Date();
+    let today_month = today.getMonth();
+
+    document.write("<h3>" + month_names[today_month] + "</h3>");
+    print_table_month_highlight_today(month_max_days[today_month]);
+
+    console.log("Fin");
+</script>
+
 
 </body>
 
