@@ -12,59 +12,42 @@
     <h1>JS-Calendar</h1>
     <h2>Partie 0 : Générer un &lt;table&gt; pour le mois de janvier</h2>
 
-    <script type="application/javascript">
-
-        console.log("Début Partie 0");
-
-        let max_days, current_day;
-
-        max_days = 31;
-        current_day = 1;
-
-        document.write("<table>");
-        document.write("<tr>");
-        for (current_day = 1; current_day <= max_days; ++current_day) {
-            document.write("<td> " + current_day + "</td>")
-        }
-
-        document.write("</tr>");
-        document.write("</table>");
-
-        console.log("Fin");
-    </script>
-
+    <table>
+        <tr>
+            <script type="application/javascript">
+                console.log("Début Partie 0");
+                for (let current_day = 1; current_day <= 31; current_day++) {
+                    document.write("<td>" + current_day + "</td>");
+                }
+                console.log("Fin Partie 0");
+            </script>
+        </tr>
+    </table>
+    
 
 
     <h2>Partie 1 : Générer un &lt;table&gt; sur plusieurs lignes</h2>
+
+<table>
     <script type="application/javascript">
         console.log("Début Partie 1");
-
-        document.write("<table>");
-
-
-        let max_col, max_line;
-
-        max_col = 7;
-        max_line = 5;
-        current_day = 1;
-
-        for (let i = 1; i <= max_line; ++i) {
-
+        let current_day = 1;
+        for (let i = 0; i < 5; i++) { // 5 lignes
             document.write("<tr>");
-
-            for (let k = 1; k <= max_col; ++k) {
-                document.write("<td>" + current_day + "</td>")
-                ++current_day;
+            for (let j = 0; j < 7; j++) { // 7 colonnes
+                if (current_day <= 31) {
+                    document.write("<td>" + current_day + "</td>");
+                    current_day++;
+                } else {
+                    document.write("<td></td>"); // case vide
+                }
             }
-
-
             document.write("</tr>");
         }
-
-        document.write("</table>");
-
-        console.log("Fin");
+        console.log("Fin Partie 1");
     </script>
+</table>
+
 
 
 
